@@ -1607,8 +1607,8 @@ const ignore = [];
 
 const components = [
 	{
-		js: () => import('./index.aefa636d.js'),
-		css: ["index.aefa636d.css","client.64a1ecc6.css"]
+		js: () => import('./index.cbbfd98d.js'),
+		css: []
 	}
 ];
 

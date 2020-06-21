@@ -1,9 +1,34 @@
-<!doctype html> <html lang=en> <head> <meta charset=utf-8> <meta content="width=device-width,initial-scale=1" name=viewport> <meta content=#333333 name=theme-color> <base href=/ctviz/ > <link href=global.css rel=stylesheet> <link href=manifest.json rel=manifest> <link href=favicon.png rel=icon type=image/png> <link href=client/main.3655661541.css rel=stylesheet><link href=client/index.aefa636d.css rel=stylesheet><link href=client/client.64a1ecc6.css rel=stylesheet> <noscript id=sapper-head-start></noscript><title>ctviz</title><noscript id=sapper-head-end></noscript> </head> <body> <div id=app> <header class=svelte-c1xj65><nav class=svelte-1xo1ohe><div><ul class=svelte-1xo1ohe><li class=svelte-1xo1ohe><a class="svelte-1xo1ohe selected" href=./ >ctviz</a></ul></div> <div><a class=svelte-1xo1ohe href=https://github.com/mindrones/ctviz>Github repo</a></div> </nav></header> <main class=svelte-c1xj65> <section class=svelte-1v1vzpf><div class="svelte-1v1vzpf input"><textarea class=svelte-1v1vzpf>\documentclass{article}
-\usepackage{amsmath}
-\begin{document}
-abc $x+y$ d
-\begin{align}
-a + b
-\end{align}
-\end{document}
-</textarea></div> <div class="svelte-1v1vzpf output"><ul class=svelte-773n60><li class="svelte-rwxv37 indent"><label class=svelte-rwxv37><div class="svelte-1vyml86 container"><div class="svelte-1vyml86 arrow">▶</div></div> <span><span>Object </span>{</span></label> <ul class="svelte-rwxv37 collapse"><li class=svelte-3bjyvl><label class=svelte-1vlbacg><span>kind:</span></label> <span class="svelte-3bjyvl String">"ast.root"</span></li> <span class="svelte-rwxv37 comma">,</span><li class=svelte-rwxv37><label class=svelte-rwxv37> <label class=svelte-1vlbacg><span>content:</span></label> <span><span>Array(4)</span>[</span></label> <span>…</span> <span>]</span></li> <span class="svelte-rwxv37 comma">,</span><li class=svelte-3bjyvl><label class=svelte-1vlbacg><span>comment:</span></label> <span class="svelte-3bjyvl Undefined">undefined</span></li> </ul> <span>}</span></ul></div> </section> </main></div> <script>__SAPPER__={baseUrl:"/ctviz",preloaded:[void 0,{}]};if('serviceWorker' in navigator)navigator.serviceWorker.register('/ctviz/service-worker.js');(function(){try{eval("async function x(){}");var main="/ctviz/client/client.64a1ecc6.js"}catch(e){main="/ctviz/client/legacy/client.a87c5b6b.js"};var s=document.createElement("script");try{new Function("if(0)import('')")();s.src=main;s.type="module";s.crossOrigin="use-credentials";}catch(e){s.src="/ctviz/client/shimport@1.0.1.js";s.setAttribute("data-main",main);}document.head.appendChild(s);}());</script> 
+<!doctype html> <html lang=en> <head> <meta charset=utf-8> <meta content="width=device-width,initial-scale=1" name=viewport> <meta content=#333333 name=theme-color> <base href=/ctviz/ > <link href=global.css rel=stylesheet> <link href=manifest.json rel=manifest> <link href=favicon.png rel=icon type=image/png> <link href=client/main.658844780.css rel=stylesheet> <noscript id=sapper-head-start></noscript><title>ctviz</title><noscript id=sapper-head-end></noscript> </head> <body> <div id=app> <header class=svelte-c1xj65><nav class=svelte-1xo1ohe><div><ul class=svelte-1xo1ohe><li class=svelte-1xo1ohe><a class="svelte-1xo1ohe selected" href=./ >ctviz</a></ul></div> <div><a class=svelte-1xo1ohe href=https://github.com/mindrones/ctviz>Github repo</a></div> </nav></header> <main class=svelte-c1xj65> <section class=svelte-1v1vzpf><div class="svelte-1v1vzpf input"><textarea class=svelte-1v1vzpf>\begin{tikzpicture}
+	[node distance=1.3cm,>=stealth',bend angle=45,auto]
+	% set up the nodes
+	\node (2) at (-2,2) {$\Hom{\CategoryC}{A}{A}$};
+	\node (1) at (-2,-2) {$\Hom{\CategoryC}{A}{B}$};
+	\node (3) at (2,2) {$FA$};
+	\node (4) at (2,-2) {$FB$};
+
+	\node (2') at (-3.5,3) {$\id{A}$};
+	\node (1') at (-3.5,-3) {$f$};
+	\node (3') at (3.5,3) {$x$};
+	\node (4') at (2,-3) {$\tau_B(f)$};
+	\node (eq) at (2.7,-3) {$=$};
+	\node (5') at (3.5,-3) {$Ff(x)$};
+
+	\draw[->] (2)--(1) node [midway,right] {$\Hom{\CategoryC}{A}{f}$};
+	\draw[->] (2)--(3) node [midway,below] {$\tau_A$};
+	\draw[->] (3)--(4) node [midway,left] {$Ff$};
+	\draw[->] (1)--(4) node [midway,above] {$\tau_B$};
+
+	\draw[red, |->] (2')--(1') node [midway,left] {};
+	\draw[red, |->] (2')--(3') node [midway,above] {};
+	\draw[red, |->] (3')--(5') node [midway,right] {};
+	\draw[red, |->] (1')--(4') node [midway,below] {};
+	%\draw[->] (2)--(4) node [midway,above right] {$h$};
+
+	\begin{pgfonlayer}
+		{background}
+		\filldraw [line width=4mm,join=round,\backgrnd]
+		([xshift=-3mm, yshift=1mm]2'.north -| 1'.west) rectangle ([xshift=0mm, yshift=-2mm]1'.south -| 5'.east);
+	\end{pgfonlayer}
+
+ \end{tikzpicture}
+</textarea></div> <div class="svelte-1v1vzpf output"><ul class=svelte-773n60><li class="svelte-rwxv37 indent"><label class=svelte-rwxv37><div class="svelte-1vyml86 container"><div class="svelte-1vyml86 arrow">▶</div></div> <span><span>Object </span>{</span></label> <ul class="svelte-rwxv37 collapse"><li class=svelte-3bjyvl><label class=svelte-1vlbacg><span>kind:</span></label> <span class="svelte-3bjyvl String">"ast.root"</span></li> <span class="svelte-rwxv37 comma">,</span><li class=svelte-rwxv37><label class=svelte-rwxv37> <label class=svelte-1vlbacg><span>content:</span></label> <span><span>Array(2)</span>[</span></label> <span>…</span> <span>]</span></li> <span class="svelte-rwxv37 comma">,</span><li class=svelte-3bjyvl><label class=svelte-1vlbacg><span>comment:</span></label> <span class="svelte-3bjyvl Undefined">undefined</span></li> </ul> <span>}</span></ul></div> </section> </main></div> <script>__SAPPER__={baseUrl:"/ctviz",preloaded:[void 0,{}]};if('serviceWorker' in navigator)navigator.serviceWorker.register('/ctviz/service-worker.js');(function(){try{eval("async function x(){}");var main="/ctviz/client/client.6ac57baf.js"}catch(e){main="/ctviz/client/legacy/client.89d19e9a.js"};var s=document.createElement("script");try{new Function("if(0)import('')")();s.src=main;s.type="module";s.crossOrigin="use-credentials";}catch(e){s.src="/ctviz/client/shimport@1.0.1.js";s.setAttribute("data-main",main);}document.head.appendChild(s);}());</script> 
