@@ -2,9 +2,9 @@
 	import {latexParser} from 'latex-utensils';
 	import JSONTree from 'svelte-json-tree';
 
-	import {defaultTex} from './_utils';
+	import yoneda_proof_tex from 'app/tex/yoneda_proof.tex';
 
-	let text = defaultTex;
+	let text = yoneda_proof_tex;
 
 	$: ast = latexParser.parse(text);
 	$: console.log(ast);

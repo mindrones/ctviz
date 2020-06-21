@@ -4,6 +4,8 @@
 	node/no-deprecated-api
 */
 
+import cleanup from "rollup-plugin-cleanup";
+import { string } from 'rollup-plugin-string';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
@@ -44,7 +46,11 @@ export default {
 				dedupe: ['svelte']
 			}),
 			commonjs(),
+			string({
+				include: "**/*.tex",
+			}),
 			json(),
+			cleanup(),
 
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
@@ -88,14 +94,13 @@ export default {
 			}),
 			commonjs(),
 			json(),
+			string({
+				include: "**/*.tex",
+			}),
 		],
 		external:
 			Object.keys(pkg.dependencies)
 			.filter(name => ![
-				'@svizzle/barchart',
-				'@svizzle/choropleth',
-				'@svizzle/utils',
-				'd3-geo',
 				'svelte-json-tree',
 			].includes(name))
 			.concat(
@@ -118,6 +123,10 @@ export default {
 			}),
 			commonjs(),
 			json(),
+			cleanup(),
+			string({
+				include: "**/*.tex",
+			}),
 			!dev && terser()
 		],
 
