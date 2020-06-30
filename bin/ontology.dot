@@ -1,0 +1,82 @@
+digraph G {
+  /*
+  compound=true;
+  */
+  nodesep=0.5;
+  overlap=false;
+  // rankdir=LR;
+  splines=true;
+
+  {
+    /* const */
+
+    node [
+      color=orange
+      shape=ellipse
+    ]
+    Category;
+    Functor;
+    Morphism;
+    Object;
+  }
+
+  edge [
+    fontcolor=blue
+  ]
+
+  Morphism -> Object [label="source"];
+  Morphism -> Object [label="target"];
+  Functor -> Category [label="source"];
+  Functor -> Category [label="target"];
+  Functor -> Morphism [label="is"];
+
+  Object -> Id [label="has unique"];
+  Id -> Morphism [label="is"];
+  Category -> ObjectSet [label="has"];
+  Category -> Morphism [label="has"];
+  // Category -> ObjectSet [label="has"];
+  Object -> ObjectSet [label="elements of"];
+  // ObjectSet -> Object [label="hasHomSet"];
+  // pair -> Object [label="first"];
+  // pair -> Object [label="second"];
+  HomSet -> pair [label="has"];
+  pair -> firstObject [label="first"];
+  pair -> secondObject [label="second"];
+  secondObject -> Object [label="is"];
+  firstObject -> Object [label="is"];
+  Morphism -> firstObject [label="source"]
+  Morphism -> secondObject [label="target"]
+  Morphism -> HomSet [label="elements of"];
+
+  NT -> Functor [label="source"];
+  NT -> Functor [label="target"];
+  NT -> Morphism [label="is"];
+  NT -> sourceFunctor [label="source"];
+  NT -> targetFunctor [label="target"];
+
+  // sourceFunctor -> sourceCategory [label="source"];
+  // sourceFunctor -> targetCategory [label="target"];
+  // targetFunctor -> sourceCategory [label="source"];
+  // targetFunctor -> targetCategory [label="target"];
+
+  sourceCategory -> sourceCategoryObjectSet [label="has"];
+  sourceCategoryObjectSet -> ObjectSet [label="is"];
+
+  sourceCategory -> Category [label="is"];
+  targetCategory -> Category [label="is"];
+  sourceOrTargetFunctor -> sourceCategory [label="source"];
+  sourceOrTargetFunctor -> targetCategory [label="target"];
+  sourceFunctor -> sourceOrTargetFunctor [label="included"];
+  targetFunctor -> sourceOrTargetFunctor [label="included"];
+
+  NT -> sourceCategory [label="functor source"];
+  NT -> targetCategory [label="functor target"];
+  NTComponent -> NT [label="part of"];
+  sourceCategoryObjectSet -> NTComponent [label="labels"];
+
+  targetCategory -> targetCategoryMorphism [label="has"];
+  NTComponent -> targetCategoryMorphism [label="is"];
+  // Category1 -> Category2 [label="Functor"];
+  // Object1 -> ObjSet [label="in"];
+  // Object2 -> ObjSet [label="in"];
+}
